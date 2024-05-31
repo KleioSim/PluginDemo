@@ -1,0 +1,29 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="PluginDemo"
+run/main_scene="res://Test.tscn"
+config/features=PackedStringArray("4.2", "C#", "Forward Plus")
+boot_splash/show_image=false
+config/icon="res://icon.svg"
+
+[autoload]
+
+DongGuan_Global="*res://addons/DongGuan.Engine.Godot/Global.cs"
+
+[dotnet]
+
+project/assembly_name="PluginDemo"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/DongGuan.Engine.Godot/plugin.cfg")

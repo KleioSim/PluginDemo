@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgvku63qnwowj"]
+
+[ext_resource type="Script" path="res://Test.cs" id="1_0wr7q"]
+[ext_resource type="Script" path="res://addons/DongGuan.Engine.Godot/EventDialog/DialogFacade.cs" id="2_gua0i"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0wr7q")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="DongGuan_EventDialog" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_gua0i")
+
+[connection signal="timeout" from="Timer" to="DongGuan_EventDialog" method="OnNextTurn"]
+[connection signal="TurnEnd" from="DongGuan_EventDialog" to="Timer" method="set_paused" binds= [false]]
+[connection signal="TurnStart" from="DongGuan_EventDialog" to="Timer" method="set_paused" binds= [true]]
